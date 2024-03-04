@@ -6,6 +6,12 @@ npm start
 
 --Create react app
 --Configured Tailwind CSS
+--Header
+--Routing
+--Login Page
+--Sign In/ Sign Up form
+--Form Validation
+  -useRef hook
 
 # Features
 
@@ -15,6 +21,7 @@ npm start
 
 -Browse(After authentication)
    -Header
+   -Routing
    -Main Movie
      -Tailer in background
      -Title & Description
