@@ -12,6 +12,12 @@ npm start
 --Sign In/ Sign Up form
 --Form Validation
   -useRef hook
+- used firebase as backend
+-Deploying app to production
+- User Authentication 
+  -Create sign up user account
+  -Implement Sign In user api
+- Create Redux store with userSlice
 
 # Features
 

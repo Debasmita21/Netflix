@@ -2,11 +2,17 @@ import Header from "./Header"
 import { background_url } from "../utils/constants"
 import { useRef, useState } from "react"
 import {checkValidLoginFormData} from "../utils/validation"
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
 
   const [isSignInForm,setisSignInForm] =useState(true)
   const [errorMessage,seterrorMessage] = useState()
+  
+  const navigate = useNavigate();
+ 
 
   const toggleSignIn = ()=>{
     setisSignInForm(!isSignInForm)
@@ -23,7 +29,57 @@ const Login = () => {
     const message = checkValidLoginFormData(email.current.value,password.current.value);
     seterrorMessage(message)
 
+    if(message) return;
+
+    if(!isSignInForm){
+      //Sign Up logic
+
+      createUserWithEmailAndPassword(auth,
+        email.current.value,
+        password.current.value
+        )
+       .then((userCredential) => {
+       // Signed up 
+       const user = userCredential.user;
+       console.log(user)
+       navigate("/browse")
+       
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorMessage(errorCode+ "-" +errorMessage)
+    
+  });
+
+    }
+    else{
+      //sign in logic
+      signInWithEmailAndPassword(auth,
+        email.current.value,
+        password.current.value
+        )
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    navigate("/browse")
+    console.log(user)
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorMessage(errorCode+ "-" +errorMessage)
+   
+    
+
+  });
+
+    }
+
   }
+
+  
 
   
 
@@ -50,7 +106,7 @@ const Login = () => {
 
         <p className="text-red-600">{errorMessage}</p> 
         <div>
-        <button className="p-2 my-8 w-full bg-red-800 rounded-sm" onClick={handleBtnClick}>{isSignInForm? "Sign In" :"Sign Up"}</button>
+        <button type="submit" className="p-2 my-8 w-full bg-red-800 rounded-sm" onClick={handleBtnClick}>{isSignInForm? "Sign In" :"Sign Up"}</button>
         </div>
         <span className="cursor-pointer" onClick={toggleSignIn}>{isSignInForm?"New to Netflix? Sign up now.":"Already registred. Sign in now."}</span>
       </form>
