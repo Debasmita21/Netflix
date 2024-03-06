@@ -18,6 +18,8 @@ npm start
   -Create sign up user account
   -Implement Sign In user api
 - Create Redux store with userSlice
+- Add user details to Redux store using onAuthStateChanged api
+-Implemented sign out
 
 # Features
 
