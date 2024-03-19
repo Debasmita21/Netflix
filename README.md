@@ -20,6 +20,17 @@ npm start
 - Create Redux store with userSlice
 - Add user details to Redux store using onAuthStateChanged api
 -Implemented sign out
+-Registered TMDB API and create an app and get an access token
+-Got Data from TMDB 'now playing movies' list api
+- Used custom hook to call 'Now playing movies' api
+- Create Browse page
+   - Create Main conatiner
+     - Updated Redux store and added movie slice
+     - Added background movie trailer from TMDB movie video api
+       - Used custom hook to call Movie trailer API 
+       - Used youtube's <iframe> for video
+       - Added autoplay feature in background movie trailer
+     - Added Movie title and description from TMDB nowPlaying movie api
 
 # Features
 

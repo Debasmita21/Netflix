@@ -91,7 +91,7 @@ const Login = () => {
         <img className="brightness-50" src= {background_url} alt="background_img"/>
       </div>
       <form onSubmit={(e)=>e.preventDefault()} className="bg-black px-16 absolute w-4/12 h-3/4
-        my-32 mx-auto left-0 right-0 text-white bg-opacity-80">
+        my-32 mx-auto left-0 right-0 text-white bg-opacity-80 flex-shrink-0">
 
         <h1 className="font-bold text-2xl my-6 p-3">{isSignInForm? "Sign In" :"Sign Up"}</h1>
 
