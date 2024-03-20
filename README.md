@@ -23,14 +23,18 @@ npm start
 -Registered TMDB API and create an app and get an access token
 -Got Data from TMDB 'now playing movies' list api
 - Used custom hook to call 'Now playing movies' api
-- Create Browse page
-   - Create Main conatiner
+- Created Browse page
+   - Created Main conatiner
      - Updated Redux store and added movie slice
      - Added background movie trailer from TMDB movie video api
        - Used custom hook to call Movie trailer API 
        - Used youtube's <iframe> for video
        - Added autoplay feature in background movie trailer
      - Added Movie title and description from TMDB nowPlaying movie api
+  - Created Secondary container
+   - Created 4 types of MovieList - Now playing, Top Rated, Popular , Upcoming
+   - Created Custom hooks for  Now playing, Top Rated, Popular and Upcoming movie list api 
+
 
 # Features
 
