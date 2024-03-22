@@ -4,21 +4,20 @@ import { useRef, useState } from "react"
 import {checkValidLoginFormData} from "../utils/validation"
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import {useNavigate} from "react-router-dom"
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
 
   const [isSignInForm,setisSignInForm] =useState(true)
   const [errorMessage,seterrorMessage] = useState()
-  
-  const navigate = useNavigate();
- 
-
+  const dispatch = useDispatch()
   const toggleSignIn = ()=>{
     setisSignInForm(!isSignInForm)
 
   }
-
+  const name = useRef(null)
   const email = useRef(null)
   const password = useRef(null)
 
@@ -41,8 +40,16 @@ const Login = () => {
        .then((userCredential) => {
        // Signed up 
        const user = userCredential.user;
-       
-       navigate("/browse")
+
+       updateProfile(auth.currentUser, {
+        displayName: name.current.value
+      }).then(() => {
+        const {uid,email,displayName} = auth.currentUser;
+        dispatch(addUser({uid:uid,email:email,displayName:displayName}))
+        
+      }).catch((error) => {
+        seterrorMessage(error.message)
+      });
        
     
   })
@@ -63,7 +70,7 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    navigate("/browse")
+    
     
   })
   .catch((error) => {
@@ -78,10 +85,6 @@ const Login = () => {
     }
 
   }
-
-  
-
-  
 
   return (
     <div>

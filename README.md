@@ -33,7 +33,12 @@ npm start
      - Added Movie title and description from TMDB nowPlaying movie api
   - Created Secondary container
    - Created 4 types of MovieList - Now playing, Top Rated, Popular , Upcoming
-   - Created Custom hooks for  Now playing, Top Rated, Popular and Upcoming movie list api 
+   - Created Movie Card
+   - Created Custom hooks for  Now playing, Top Rated, Popular and Upcoming movie list api
+- Bugfix- If the user is not signed in ,redirect him to
+login page and vice versa.
+-Unsubscribed to the onAuthStateChanged callback
+
 
 
 # Features
