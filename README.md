@@ -38,6 +38,7 @@ npm start
 - Bugfix- If the user is not signed in ,redirect him to
 login page and vice versa.
 -Unsubscribed to the onAuthStateChanged callback
+-GPT search feature
 
 
 
