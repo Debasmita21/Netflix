@@ -39,6 +39,7 @@ npm start
 login page and vice versa.
 -Unsubscribed to the onAuthStateChanged callback
 -GPT search feature
+-Made our website responsive
 
 
 

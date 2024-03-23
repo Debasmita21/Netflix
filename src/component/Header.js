@@ -54,22 +54,23 @@ const Header = () => {
   };
   
   return (
-    <div className="absolute px-4 w-screen z-20 bg-gradient-to-b from-black flex justify-between">
-      <img className="w-44 saturate-100 brightness-100
+    <div className="absolute px-4 w-screen z-20 bg-gradient-to-b from-black flex flex-col md:flex-row justify-between">
+      <img className=" w-32 md:w-44 mx-auto md:mx-0 saturate-100 brightness-100
       contrast-125 " src={netflix_logo} alt="Netflix_logo"/>
       
-      {user && (<div className="flex m-2 p-2">
-      <button className="p-2 mr-2 ms-2 text-sm font-medium flex text-white bg-blue-500 rounded-md "
-      onClick={handleGptSearchClick}
-      >
-        <svg className="mt-2.5 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-        </svg>
+      {user && 
+        (
+          <div className="flex m-auto md:m-2 p-auto md:p-2">
+             <button className=" p-1 md:p-2 mr-2 ms-2 text-sm font-medium flex text-white bg-blue-500 rounded-md "
+              onClick={handleGptSearchClick}>
+              <svg className="mt-1.5 w-3 md:w-4 h-3 md:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
         
-        {showgptSearchPage ? "Homepage" : "Search"}
+        <span className="ml-1 ">{showgptSearchPage ? "Homepage" : "Search"}</span>
     </button>
-        <img className="w-12 h-12" src= {user_logo} alt="User_logo"/>
-        <button className="text-white font-bold" onClick={handleSignOut}>Sign Out</button>
+        <img className="hidden md:block w-8 md:w-12 h-8 md:h-12" src= {user_logo} alt="User_logo"/>
+        <button className="text-red-700 font-bold m-1" onClick={handleSignOut}>Sign Out</button>
       </div>)}
   
     </div>

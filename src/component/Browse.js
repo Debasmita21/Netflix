@@ -20,8 +20,7 @@ const Browse = () =>{
         
       <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      
       
       {showgptSearchPage ? (
         <GptSearchPage />
