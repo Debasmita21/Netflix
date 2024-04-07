@@ -1,4 +1,4 @@
-import { background_url } from "../utils/constants"
+import { GPTSearchPageBackground_url } from "../utils/constants"
 import GptMovieSuggestion from "./GptMovieSuggestion"
 import GptSearchBar from "./GptSearchBar"
 
@@ -6,9 +6,9 @@ const GptSearchPage = () => {
   return (
     <div>
       <div className="absolute -z-10">
-        <img className="h-screen object-cover" src={background_url} alt="background logo"/>
+        <img className="h-screen w-screen object-cover" src={GPTSearchPageBackground_url} alt="background logo"/>
       </div>
-      <div className="pt-[30%] md:p-0">
+      <div className="">
         <GptSearchBar />
         <GptMovieSuggestion />
       </div>

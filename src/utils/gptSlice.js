@@ -5,7 +5,7 @@ const gptSlice = createSlice({
         showGptSearchPage:false,
     },
     reducers:{
-        toggleGptSearchPageView:(state,action)=>{
+        toggleGptSearchPageView:(state)=>{
             state.showGptSearchPage = !state.showGptSearchPage;
         }
     }
