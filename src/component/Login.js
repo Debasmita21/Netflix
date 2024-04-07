@@ -86,8 +86,8 @@ const Login = () => {
     <div>
       <Header />
       
-      <div className="w-max absolute">
-        <img className="brightness-50" src= {background_url} alt="background_img"/>
+      <div className="absolute">
+        <img className="brightness-50 w-screen h-screen" src= {background_url} alt="background_img"/>
       </div>
       <form onSubmit={(e)=>e.preventDefault()} className="bg-black px-16 absolute w-full md:w-4/12 h-3/4
         my-32  mx-auto left-0 right-0 text-white bg-opacity-80 flex-shrink-0">
